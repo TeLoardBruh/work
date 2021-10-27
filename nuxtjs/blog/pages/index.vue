@@ -19,9 +19,7 @@
 </template>
 
 <script>
-import PostCard from "@/components/Post/PostCard.vue";
 export default {
-  components: { PostCard },
   // data() {
   //   return {
   //     posts: []

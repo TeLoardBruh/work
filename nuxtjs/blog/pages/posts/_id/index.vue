@@ -3,7 +3,7 @@
     <section class="post">
       <h1 class="post-title">{{ post.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">{{ post.updatedDate }}</div>
+        <div class="post-detail">{{ post.updatedDate | date }}</div>
         <div class="post-detail">{{ post.author }}</div>
       </div>
       <p class="post-content">{{ post.content }}</p>
@@ -22,7 +22,7 @@ export default {
   asyncData(context) {
     return axios
       .get(
-        "https://nuxt-js-94ec8-default-rtdb.asia-southeast1.firebasedatabase.app/posts/" +
+        process.env.baseUrl+"posts/" +
           context.params.id +
           ".json"
       )

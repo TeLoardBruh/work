@@ -4,6 +4,7 @@
       <app-button @click="$router.push('/admin/new-post')"
         >Create Post</app-button
       >
+      <app-button @click="OnLogOut">Log Out</app-button>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -21,17 +22,21 @@
   </div>
 </template>
 <script>
-import PostCard from "@/components/Post/PostCard.vue";
-import AppButton from "@/components/UI/AppButton.vue";
 export default {
   layout: "admin",
-  components: { PostCard, AppButton },
+  middleware: ["checkAuth", "auth"],
   computed: {
     posts() {
       return this.$store.getters.posts;
     }
   },
-  created() {}
+  created() {},
+  methods: {
+    OnLogOut() {
+      this.$store.dispatch("logout");
+      this.$router.push("/admin/auth");
+    }
+  }
 };
 </script>
 

@@ -6,13 +6,9 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import AdminPost from "@/components/Admin/AdminPost";
 export default {
   layout: "admin",
-  components: {
-    AdminPost
-  },
+  middleware: ["checkAuth", "auth"],
   methods: {
     onSubmitted(postData) {
       this.$store

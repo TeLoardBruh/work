@@ -8,21 +8,14 @@
 </template>
 
 <script>
-import AdminPost from "@/components/Admin/AdminPost";
 import axios from "axios";
 export default {
   layout: "admin",
-  components: {
-    AdminPost
-  },
+  middleware: ["checkAuth", "auth"],
 
   asyncData(context) {
     return axios
-      .get(
-        "https://nuxt-js-94ec8-default-rtdb.asia-southeast1.firebasedatabase.app/posts/" +
-          context.params.postId +
-          ".json"
-      )
+      .get(process.env.baseUrl + "posts/" + context.params.postId + ".json")
       .then(res => {
         return {
           loadPost: { ...res.data, id: context.params.postId }

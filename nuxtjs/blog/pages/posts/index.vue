@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import PostCard from "@/components/Post/PostCard.vue";
 export default {
-  components: { PostCard },
-
+  middleware: "log",
   computed: {
     posts() {
       return this.$store.getters.posts;
