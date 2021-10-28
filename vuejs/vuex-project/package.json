@@ -1,5 +1,5 @@
 {
-  "name": "routing",
+  "name": "vuex-project",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "vue": "^3.2.16",
-    "vue-router": "^4.0.12"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",

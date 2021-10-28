@@ -7,6 +7,7 @@
       <template v-slot:content>{{ post.content }}</template>
       <template v-slot:description><Controls :post="post" /> </template>
     </CardComponent>
+    <router-view />
   </div>
 </template>
 <script>
@@ -14,6 +15,7 @@ import { store } from "./store";
 import CardComponent from "./components/Card.vue";
 import Controls from "./components/Controls.vue";
 import { computed } from "vue";
+
 export default {
   components: {
     CardComponent,
@@ -25,7 +27,7 @@ export default {
     };
 
     return {
-      filteredPosts: computed(() => store.filterPost),
+      filteredPosts: store.filterPost,
       currentTag: computed(() => store.state.currentTag),
       setHashTag,
     };
