@@ -1,0 +1,2 @@
+class FriendDatum < ApplicationRecord
+end

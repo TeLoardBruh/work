@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Friend Data</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Firtname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friend_data.each do |friend_datum| %>
+      <tr>
+        <td><%= friend_datum.firtName %></td>
+        <td><%= friend_datum.lastName %></td>
+        <td><%= friend_datum.email %></td>
+        <td><%= friend_datum.phone %></td>
+        <td><%= link_to 'Show', friend_datum %></td>
+        <td><%= link_to 'Edit', edit_friend_datum_path(friend_datum) %></td>
+        <td><%= link_to 'Destroy', friend_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friend', new_friend_datum_path,class:'btn btn-secondary' %>
+
