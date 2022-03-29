@@ -1,5 +1,6 @@
 class FriendDataController < ApplicationController
   before_action :set_friend_datum, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /friend_data or /friend_data.json
   def index
@@ -64,6 +65,6 @@ class FriendDataController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_datum_params
-      params.require(:friend_datum).permit(:firtName, :lastName, :email, :phone)
+      params.require(:friend_datum).permit(:firtName, :lastName, :email, :phone, :user_id)
     end
 end

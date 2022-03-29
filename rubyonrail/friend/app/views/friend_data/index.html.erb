@@ -14,6 +14,8 @@
 
   <tbody>
     <% @friend_data.each do |friend_datum| %>
+    <% if friend_datum.user == current_user%>
+
       <tr>
         <td><%= friend_datum.firtName %></td>
         <td><%= friend_datum.lastName %></td>
@@ -23,6 +25,7 @@
         <td><%= link_to 'Edit', edit_friend_datum_path(friend_datum) %></td>
         <td><%= link_to 'Destroy', friend_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
